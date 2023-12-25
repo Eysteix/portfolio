@@ -31,7 +31,7 @@ export default  async  function RootLayout({
           <div className='flex gap-2'>
             {pages.map((page) =>(
               <Link key={page._id}
-              href={`/${page.slug}`} className='font-bold text-xl' >
+              href={`/${page.slug}`} className='text-sm hover:text-blue-500' >
               {page.title}
               </Link>
             ))}

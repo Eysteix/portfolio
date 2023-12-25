@@ -3,7 +3,7 @@ import { createClient,groq } from "next-sanity";
 
 import clientConfig from './config/client-config'
 
-import {Pages} from "@/types/Pages"
+import {Page} from "@/types/Pages"
 
 
 export async function getProjects(): Promise<Project[]> {
@@ -39,28 +39,28 @@ export async function getProject(slug: string): Promise<Project>{
 }
 
 
-export async function getPages(): Promise<Pages[]>{
-
+export async function getPages(): Promise<Page[]>{
     return createClient(clientConfig).fetch(
       groq`*[_type == 'page']{
          _id,
          _createdAt,
          title,
-         "slug":slug.current,
+         "slug":slug.current
       }`
     )
 
 }
 
-export async function getPage(slug:string):Promise<Pages>{
+export async function getPage(slug:string): Promise<Page>{
+
   return createClient(clientConfig).fetch(
-   groq`*[_type == 'page' && slug.current = $slug][0]{
+   groq`*[_type == 'page' && slug.current == $slug][0]{
       _id,
       _createdAt,
       title,
       "slug":slug.current,
       content,
    }`,
-   {slug}
-  )
+   { slug }
+  );
 }
