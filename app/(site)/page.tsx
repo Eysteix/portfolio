@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Home() {
-  const projects = await getProjects();
+  const projects = await getProjects( );
   return (
    <div>
       <h1 className='text-7xl font-extrabold'>Hello I&apos;m <span className='bg-gradient-to-r from-blue-500 via-purple-500 to-green-300 bg-clip-text text-transparent'>Marvel</span>!</h1>
