@@ -8,13 +8,12 @@ import schemas from "./sanity/schemas";
     {
         projectId : 'ktjlfdyf',
         dataset : 'production',
-        title: 'my porfolio',
-        apiVersion: '2023-04-04',
+        title: 'porfolio',
+        apiVersion: '2023-12-25',
         basePath : '/admin',
         plugins :[
             deskTool(),
         ],
         schema:{types: schemas},
-        useCdn:false
     }
 )
