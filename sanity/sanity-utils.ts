@@ -9,7 +9,7 @@ import {Page} from "@/types/Pages"
 export async function getProjects(): Promise<Project[]> {
 
     return createClient(clientConfig).fetch(
-        groq`*[_type == "project"]{
+        groq`*[_type == 'project']{
            _id,
            _createdAt,
            name,
@@ -17,15 +17,14 @@ export async function getProjects(): Promise<Project[]> {
            "image":image.asset->url,
            url,
            content
-        }`
-       , { next: { revalidate: 3600 } } );
+        }`);
 }
 
 
 export async function getProject(slug: string): Promise<Project>{
 
   return  createClient(clientConfig).fetch(
-      groq`*[_type == "project" && slug.current == $slug][0]{
+      groq`*[_type == 'project' && slug.current == $slug][0]{
          _id,
          _createdAt,
          name,
