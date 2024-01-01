@@ -18,7 +18,7 @@ export async function getProjects(): Promise<Project[]> {
            url,
            content
         }`
-       , { next: { revalidate: 600 } } );
+       , { next: { revalidate: 3600 } } );
 }
 
 
